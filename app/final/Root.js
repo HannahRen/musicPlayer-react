@@ -1,17 +1,30 @@
 import React, { Component } from 'react';
+import { MUSIC_LIST } from './config/config'
+
 import Logo from './components/logo'
-import Progress from './components/progress'
+import Player from './page/player'
 
 export default class Root extends Component {
+	constructor(props) {
+		super(props)
+		this.state = {
+			musicList: MUSIC_LIST
+		}
+	}
+	componentDidMount() {
+		$('#player').jPlayer({
+			ready: () => {
+				$(this).jPlayer('setMedia', {
+					mp3: ''
+				})
+			}
+		})
+	}
 	render() {
 		return (
 			<div>
 				<Logo />
-				<Progress
-					progress={1}
-				>
-
-				</Progress>
+				<Player />
 			</div>
 		)
 	}
