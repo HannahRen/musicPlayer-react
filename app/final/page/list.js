@@ -1,24 +1,29 @@
-import React from 'react';
-import { MUSIC_LIST } from '../config/config';
-import ListItem from '../components/listitem';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { MUSIC_LIST } from '../config/config'
+import ListItem from '../components/listItem'
 
-let List = React.createClass({
-    render() {
-    	let Items = this.props.musicList.map((item) => {
-    		return (
-    			<ListItem
-    				key={item.id}
-    				data={item}
-                    focus={this.props.currentMusitItem === item}
-    			></ListItem>
-    		);
-    	});
-        return (
-            <ul>
-                { Items }
-            </ul>
-        );
-    }
-});
-
-export default List;
+export default class List extends Component {
+  render() {
+    let listEle = this.props.musicList.map((item) => {
+      return (
+        <ListItem
+          focus = {item === this.props.currentMusicItem}
+          key={item.id}
+          musicItem={item}
+        >
+          {item.title}
+        </ListItem>
+      )
+    })
+    return (
+      <ul>
+        {listEle}
+      </ul>
+    )
+  }
+}
+List.propTypes = {
+  musicList: PropTypes.array,
+  currentMusicItem: PropTypes.object
+}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import './progress.less'
 
 export default class Progress extends Component {
@@ -17,9 +18,14 @@ export default class Progress extends Component {
     return (
       <div className='components-progress' ref='progressBar' onClick={this.changeProgress}>
         <div className='progress'
-             style={{width: `${this.props.progress}%`, background: 'this.props.barColor'}}>
+             style={{width: `${this.props.progress}%`, background: this.props.barColor}}>
         </div>
       </div>
     )
   }
+}
+Progress.propTypes = {
+  onProgressChange: PropTypes.func,
+  barColor: PropTypes.string,
+  progress: PropTypes.number
 }
