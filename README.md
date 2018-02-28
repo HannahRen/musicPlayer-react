@@ -13,7 +13,6 @@ npm start
 npm run build
 ```
 
-**运行各阶段例子**
 
 modify `entry` in `webpack.config.js`
 
