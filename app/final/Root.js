@@ -6,11 +6,14 @@ import List from './page/list'
 
 export default class Root extends Component {
 	render() {
-		<Router history={hashHistory}>
-			<Route path='/' component={App}>
+		return (
+			<Router history={hashHistory}>
+			    <Route path='/' component={App}>
 				<IndexRoute component={Player}></IndexRoute>
 				<Route path='/list' component={List}></Route>
-			</Route>
-		</Router>
+			    </Route>
+		        </Router>
+		)
+		
 	}
 }
