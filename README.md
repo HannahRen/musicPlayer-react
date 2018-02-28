@@ -1,23 +1,23 @@
 # react-music-player
 music player build with React
 
-### 如何运行
+### how to run
 
-**开发启动**
+**start**
 ```shell
 npm start
 ```
 
-**编译产品**
+**build**
 ```shell
 npm run build
 ```
 
 **运行各阶段例子**
 
-修改`webpack.config.js`中`entry`
+modify `entry` in `webpack.config.js`
 
-比如`Router`例子
+take `Router` as an example
 ```javascript
 entry: [
     'webpack-dev-server/client?http://localhost:3000',
